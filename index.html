@@ -23,9 +23,8 @@
 <body>
     <header>
         <nav class="container">
-            <a href="/" class="nav-logo">
-                <object data="icons/innovation.svg" type="image/svg+xml"></object>
-                MedInnovate
+            <a href="#home" class="nav-logo">
+                <img src="logo-transparent.png" alt="MedInnovate Logo" class="logo silhouette">
             </a>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
@@ -35,23 +34,23 @@
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#episodes">Episodes</a>
-                <a href="#about">About</a>
+                <a href="#why-listen">Why Listen</a>
                 <a href="#hosts">Hosts</a>
                 <a href="#contact">Contact</a>
-                <a href="#subscribe" class="btn btn-primary">Subscribe</a>
+                <a href="https://open.spotify.com/show/3BSx00pe1COcOATQP0aviu" class="btn btn-primary" target="_blank">Subscribe</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1>Exploring the Future of Healthcare Innovation</h1>
                         <p class="subtitle">Join two UNC medical students as they dive deep into conversations with pioneers at the intersection of medicine and technology.</p>
                         <div class="hero-cta">
-                            <a href="#subscribe" class="btn btn-primary">Listen to Latest Episode</a>
+                            <a href="#episodes" class="btn btn-primary">Listen to Latest Episode</a>
                             <a href="#episodes" class="btn btn-secondary">Browse All Episodes</a>
                         </div>
                         <div class="hero-stats">
@@ -90,11 +89,11 @@
                             </iframe>
                         </div>
                         <div class="platform-badges">
-                            <a href="#" class="platform">
+                            <a href="https://podcasts.apple.com/us/podcast/the-medical-innovation-podcast/id1784368272" class="platform" target="_blank">
                                 <object data="icons/apple-podcast.svg" type="image/svg+xml"></object>
                                 <span>Listen on Apple Podcasts</span>
                             </a>
-                            <a href="#" class="platform">
+                            <a href="https://open.spotify.com/show/3BSx00pe1COcOATQP0aviu" class="platform" target="_blank">
                                 <object data="icons/spotify.svg" type="image/svg+xml"></object>
                                 <span>Listen on Spotify</span>
                             </a>
@@ -104,7 +103,7 @@
             </div>
         </section>
 
-        <section class="categories">
+        <section class="categories" id="topics">
             <div class="container">
                 <h2>Explore Topics</h2>
                 <div class="categories-grid">
@@ -148,7 +147,7 @@
             </div>
         </section>
 
-        <section class="features">
+        <section class="features" id="why-listen">
             <div class="container">
                 <div class="features-header">
                     <h2>Why Listen to Our Podcast?</h2>
@@ -180,7 +179,7 @@
             </div>
         </section>
 
-        <section class="hosts">
+        <section class="hosts" id="hosts">
             <div class="container">
                 <div class="hosts-header">
                     <h2>Meet Your Hosts</h2>
@@ -229,7 +228,7 @@
             </div>
         </section>
 
-        <section class="episodes">
+        <section class="episodes" id="episodes">
             <div class="container">
                 <h2>Latest Episodes</h2>
                 <div class="episode-list">
@@ -261,7 +260,7 @@
             </div>
         </section>
 
-        <section class="popular-episodes">
+        <section class="popular-episodes" id="popular">
             <div class="container">
                 <h2>Most Popular Episodes</h2>
                 <div class="episode-grid">
@@ -288,26 +287,25 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo">
-                        <object data="icons/innovation.svg" type="image/svg+xml"></object>
-                        <span>MedInnovate</span>
+                    <a href="#home" class="footer-logo">
+                        <img src="logo-transparent.png" alt="MedInnovate Logo" class="logo silhouette">
                     </a>
                     <p class="footer-description">Exploring the intersection of medicine and technology through the lens of future physicians at UNC School of Medicine.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Twitter">
+                        <a href="https://twitter.com/medinnovatepod" class="social-link" aria-label="Twitter" target="_blank">
                             <object data="icons/twitter.svg" type="image/svg+xml"></object>
                         </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
+                        <a href="https://linkedin.com/company/medinnovatepod" class="social-link" aria-label="LinkedIn" target="_blank">
                             <object data="icons/linkedin.svg" type="image/svg+xml"></object>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
+                        <a href="https://instagram.com/medinnovatepod" class="social-link" aria-label="Instagram" target="_blank">
                             <object data="icons/instagram.svg" type="image/svg+xml"></object>
                         </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
+                        <a href="https://youtube.com/@medinnovatepod" class="social-link" aria-label="YouTube" target="_blank">
                             <object data="icons/youtube.svg" type="image/svg+xml"></object>
                         </a>
                     </div>
@@ -316,7 +314,7 @@
                     <div class="footer-section">
                         <h4>Quick Links</h4>
                         <ul>
-                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#why-listen">Why Listen</a></li>
                             <li><a href="#episodes">Episodes</a></li>
                             <li><a href="#hosts">Meet the Hosts</a></li>
                             <li><a href="#contact">Contact</a></li>
@@ -325,10 +323,10 @@
                     <div class="footer-section">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="#guest">Be a Guest</a></li>
-                            <li><a href="#sponsor">Sponsor Us</a></li>
-                            <li><a href="#press">Press Kit</a></li>
-                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#contact">Be a Guest</a></li>
+                            <li><a href="#contact">Sponsor Us</a></li>
+                            <li><a href="#contact">Press Kit</a></li>
+                            <li><a href="#contact">FAQ</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -344,9 +342,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 UNC Medical Innovation Podcast. All Rights Reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Use</a>
-                    <a href="#accessibility">Accessibility</a>
+                    <a href="#contact">Privacy Policy</a>
+                    <a href="#contact">Terms of Use</a>
+                    <a href="#contact">Accessibility</a>
                 </div>
             </div>
         </div>
