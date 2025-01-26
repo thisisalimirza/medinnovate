@@ -57,8 +57,8 @@
                             Listen on Spotify
                         </a>
                         {% endif %}
-                        {% if episode.apple_podcasts_url %}
-                        <a href="{{ episode.apple_podcasts_url }}" target="_blank" rel="noopener noreferrer" class="platform-button apple">
+                        {% if episode.apple_podcast_url %}
+                        <a href="{{ episode.apple_podcast_url }}" target="_blank" rel="noopener noreferrer" class="platform-button apple">
                             <object data="{% static 'api/icons/apple-podcast.svg' %}" type="image/svg+xml"></object>
                             Listen on Apple Podcasts
                         </a>
