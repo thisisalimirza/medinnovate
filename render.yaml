@@ -6,7 +6,10 @@ services:
       python -m pip install --upgrade pip
       pip install gunicorn
       pip install -r requirements.txt
-    startCommand: gunicorn backend.wsgi:application
+    startCommand: |
+      python manage.py migrate
+      python manage.py shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'temporarypassword123') if not User.objects.filter(username='admin').exists() else None"
+      gunicorn backend.wsgi:application
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.8
@@ -18,6 +21,12 @@ services:
         fromDatabase:
           name: medical-innovation-pod-db
           property: connectionString
+      - key: DJANGO_SUPERUSER_USERNAME
+        value: admin
+      - key: DJANGO_SUPERUSER_EMAIL
+        value: admin@example.com
+      - key: DJANGO_SUPERUSER_PASSWORD
+        value: temporarypassword123
 
 databases:
   - name: medical-innovation-pod-db
