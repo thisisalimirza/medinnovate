@@ -20,13 +20,18 @@
                         </time>
                     </div>
                 </a>
-                {% if episode.spotify_url %}
-                <a href="{{ episode.spotify_url }}" target="_blank" rel="noopener noreferrer" class="play-button" onclick="event.stopPropagation();">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </a>
-                {% endif %}
+                <div class="platform-buttons">
+                    {% if episode.spotify_url %}
+                    <a href="{{ episode.spotify_url }}" target="_blank" rel="noopener noreferrer" class="play-button spotify" onclick="event.stopPropagation();">
+                        <object data="{% static 'api/icons/spotify.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                    {% endif %}
+                    {% if episode.apple_podcasts_url %}
+                    <a href="{{ episode.apple_podcasts_url }}" target="_blank" rel="noopener noreferrer" class="play-button apple" onclick="event.stopPropagation();">
+                        <object data="{% static 'api/icons/apple-podcast.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -49,13 +54,18 @@
                         </time>
                     </div>
                 </a>
-                {% if episode.spotify_url %}
-                <a href="{{ episode.spotify_url }}" target="_blank" rel="noopener noreferrer" class="play-button" onclick="event.stopPropagation();">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </a>
-                {% endif %}
+                <div class="platform-buttons">
+                    {% if episode.spotify_url %}
+                    <a href="{{ episode.spotify_url }}" target="_blank" rel="noopener noreferrer" class="play-button spotify" onclick="event.stopPropagation();">
+                        <object data="{% static 'api/icons/spotify.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                    {% endif %}
+                    {% if episode.apple_podcasts_url %}
+                    <a href="{{ episode.apple_podcasts_url }}" target="_blank" rel="noopener noreferrer" class="play-button apple" onclick="event.stopPropagation();">
+                        <object data="{% static 'api/icons/apple-podcast.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
             {% endfor %}
         </div>
