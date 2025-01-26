@@ -386,12 +386,12 @@ nav {
 /* Categories Section */
 .categories {
     padding: 6rem 0;
-    background: var(--background);
+    background: var(--background-alt);
 }
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -399,87 +399,83 @@ nav {
 .category-card {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 2.5rem;
-    background: white;
-    border-radius: 24px;
+    padding: 2rem;
+    background: var(--background);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
     text-decoration: none;
-    transition: var(--hover-transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
 }
 
 .category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .category-icons {
     display: flex;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .category-icon {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     color: var(--primary);
-    opacity: 0.9;
-    transition: var(--hover-transition);
-}
-
-.category-card:hover .category-icon {
-    transform: scale(1.1);
-    color: var(--primary-dark);
 }
 
 .category-name {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text);
-    margin: 0;
+    margin-bottom: 1rem;
 }
 
 .category-description {
     color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
     font-size: 1rem;
     line-height: 1.6;
-    margin: 0;
 }
 
 .category-count {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: var(--text-light);
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .category-count::before {
     content: '';
     display: inline-block;
-    width: 4px;
-    height: 4px;
-    background: currentColor;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
     border-radius: 50%;
 }
 
 @media (max-width: 768px) {
+    .categories {
+        padding: 4rem 0;
+    }
+    
     .categories-grid {
         grid-template-columns: 1fr;
-        padding: 0 1rem;
+        gap: 1.5rem;
     }
-
+    
     .category-card {
-        padding: 2rem;
+        padding: 1.5rem;
     }
+}
 
-    .category-icon {
-        width: 28px;
-        height: 28px;
+@media (min-width: 769px) and (max-width: 1024px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -617,71 +613,181 @@ nav {
 
 /* Episodes Section */
 .episodes {
-    padding: 6rem 0;
-    background: var(--surface);
-}
-
-.episodes h2 {
-    margin-bottom: 3rem;
+    padding: 5rem 0;
+    background: var(--background);
 }
 
 .episode-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .episode-card {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem;
-    padding: 2rem;
-    background: white;
-    border-radius: 16px;
-    margin-bottom: 1.5rem;
-    transition: var(--hover-transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    cursor: pointer;
+    background: var(--background-alt);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
 }
 
-.episode-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--card-shadow-hover);
+.episode-card-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 1.25rem;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.episode-card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px -1px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.episode-card:hover .play-button {
+    opacity: 1;
 }
 
 .episode-number {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
-.episode-content {
+.title-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .episode-title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--text);
+    line-height: 1.3;
+    margin: 0;
+    flex: 1;
+}
+
+.duration {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
 }
 
 .episode-description {
     color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+
+.episode-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.play-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+    opacity: 0;
+}
+
+.play-button svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    margin-left: 2px;
 }
 
 .episode-meta {
     display: flex;
-    gap: 1rem;
-    color: var(--text-light);
-    font-size: 0.875rem;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    opacity: 0.8;
+    align-items: center;
 }
 
-.episode-duration {
+.episode-meta time,
+.episode-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.episode-meta time::after {
+    content: '•';
+    margin-left: 1rem;
+}
+
+.episode-links {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.platform-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.platform-link:hover {
+    color: var(--primary);
+}
+
+.platform-link object {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .episode-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .episode-card-link {
+        padding: 1rem;
+    }
+    
+    .episode-links {
+        padding: 1rem 1.5rem;
+    }
+    
+    .play-button {
+        opacity: 1;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .play-button svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 /* Popular Episodes */
@@ -1667,5 +1773,276 @@ html {
 
     .footer-logo .logo {
         height: 112px;
+    }
+}
+
+/* Episode Detail Page */
+.episode-detail {
+    padding: 8rem 0 4rem;
+    background: var(--background);
+    margin-top: 64px;
+}
+
+.episode-detail .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.episode-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.episode-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.episode-header h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.episode-guest {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.guest-name {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.guest-title {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.episode-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.episode-number {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.episode-meta time::after {
+    content: '•';
+    margin-left: 1.5rem;
+}
+
+.episode-meta span:last-child::after {
+    display: none;
+}
+
+.episode-categories {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.category-tag {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: var(--hover-transition);
+}
+
+.category-tag:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.episode-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.platform-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.platform-button.spotify {
+    background: #1DB954;
+    color: white;
+}
+
+.platform-button.apple {
+    background: #FB5BC5;
+    color: white;
+}
+
+.platform-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.platform-button object {
+    width: 20px;
+    height: 20px;
+}
+
+.episode-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.episode-description p {
+    margin-bottom: 1.5rem;
+}
+
+.show-notes, .transcript {
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.show-notes h2, .transcript h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.show-notes p, .transcript p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.episode-share {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.episode-share h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.share-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    background: var(--accent);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.share-button:hover {
+    transform: translateY(-2px);
+    background: var(--primary);
+    color: white;
+}
+
+.share-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 768px) {
+    .episode-detail {
+        padding: 6rem 0 2rem;
+        margin-top: 56px;
+    }
+
+    .episode-content {
+        padding: 1.5rem;
+    }
+
+    .episode-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .episode-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .episode-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .episode-meta time::after {
+        display: none;
+    }
+
+    .episode-description {
+        font-size: 1rem;
+    }
+
+    .show-notes h2, .transcript h2 {
+        font-size: 1.25rem;
+    }
+
+    .show-notes p, .transcript p {
+        font-size: 1rem;
+    }
+
+    .platform-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .share-buttons {
+        flex-direction: column;
+    }
+
+    .share-button {
+        width: 100%;
+        justify-content: center;
     }
 } 

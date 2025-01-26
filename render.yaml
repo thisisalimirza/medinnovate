@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: medical-innovation-pod
+    env: python
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install gunicorn
+      pip install -r requirements.txt
+    startCommand: gunicorn backend.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: medical-innovation-pod-db
+          property: connectionString
+
+databases:
+  - name: medical-innovation-pod-db
+    databaseName: medical_innovation_pod
+    plan: free 
