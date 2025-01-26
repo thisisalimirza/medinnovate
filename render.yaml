@@ -8,7 +8,6 @@ services:
       pip install -r requirements.txt
     startCommand: |
       python manage.py migrate
-      python manage.py createsuperuser --noinput || true
       gunicorn backend.wsgi:application
     envVars:
       - key: PYTHON_VERSION
@@ -21,12 +20,6 @@ services:
         fromDatabase:
           name: medical-innovation-pod-db
           property: connectionString
-      - key: DJANGO_SUPERUSER_USERNAME
-        value: admin
-      - key: DJANGO_SUPERUSER_EMAIL
-        value: admin@example.com
-      - key: DJANGO_SUPERUSER_PASSWORD
-        value: "MedInnovate2024!"
       - key: SECRET_KEY
         generateValue: true
 
