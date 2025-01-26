@@ -1,0 +1,93 @@
+{% load static %}
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="{% url 'landing_page' %}" class="footer-logo">
+                    <img src="{% static 'api/images/logo-transparent.png' %}" alt="Medical Innovation Pod" class="logo silhouette">
+                </a>
+                <p class="footer-description">
+                    Exploring the intersection of healthcare and innovation through conversations with medical students, clinicians, and industry leaders.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <object data="{% static 'api/icons/linkedin.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                    <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <object data="{% static 'api/icons/spotify.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                    <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <object data="{% static 'api/icons/apple-podcast.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{% url 'landing_page' %}#episodes">Episodes</a></li>
+                        <li><a href="{% url 'landing_page' %}#topics">Topics</a></li>
+                        <li><a href="{% url 'landing_page' %}#hosts">Hosts</a></li>
+                        <li><a href="{% url 'landing_page' %}#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Show Notes</a></li>
+                        <li><a href="#">Transcripts</a></li>
+                        <li><a href="#">Guest Resources</a></li>
+                        <li><a href="#">Media Kit</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="subscribe-text">Get the latest episodes and resources delivered to your inbox.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; {% now "Y" %} Medical Innovation Pod. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button>
+
+<script>
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script> 

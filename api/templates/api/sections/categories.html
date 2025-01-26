@@ -1,0 +1,20 @@
+{% load static %}
+{% load api_extras %}
+<section class="categories" id="topics">
+    <div class="container">
+        <h2>Explore Topics</h2>
+        <div class="categories-grid">
+            {% for category in categories %}
+            <a href="#" class="category-card">
+                <div class="category-icons">
+                    <object data="{% static 'api/icons/ai.svg' %}" type="image/svg+xml" class="category-icon"></object>
+                    <object data="{% static 'api/icons/tech.svg' %}" type="image/svg+xml" class="category-icon"></object>
+                </div>
+                <h3 class="category-name">{{ category }}</h3>
+                <p class="category-description">{{ category_descriptions|get_item:category|default:"Explore episodes in this category" }}</p>
+                <span class="category-count">{{ category_counts|get_item:category|default:"0" }} Episodes</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section> 

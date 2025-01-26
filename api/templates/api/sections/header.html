@@ -1,0 +1,63 @@
+{% load static %}
+
+<header>
+    <nav class="container">
+        <a href="{% url 'landing_page' %}" class="nav-logo">
+            <img src="{% static 'api/images/logo-transparent.png' %}" alt="Medical Innovation Pod" class="logo silhouette">
+        </a>
+        
+        <div class="nav-links">
+            <a href="{% url 'landing_page' %}#episodes">Episodes</a>
+            <a href="{% url 'landing_page' %}#topics">Topics</a>
+            <a href="{% url 'landing_page' %}#hosts">Hosts</a>
+            <a href="{% url 'landing_page' %}#contact">Contact</a>
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Listen Now
+            </a>
+        </div>
+
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+
+<script>
+    // Header scroll behavior
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.classList.remove('scroll-up');
+            return;
+        }
+        
+        if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+            // Scrolling down
+            header.classList.remove('scroll-up');
+            header.classList.add('scroll-down');
+        } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+            // Scrolling up
+            header.classList.remove('scroll-down');
+            header.classList.add('scroll-up');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Mobile menu
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
+</script> 

@@ -1,0 +1,49 @@
+{% load static %}
+<section class="hosts" id="hosts">
+    <div class="container">
+        <div class="hosts-header">
+            <h2>Meet Your Hosts</h2>
+            <p class="subtitle">Get to know the medical students behind the microphone, bringing you insights from the intersection of healthcare and innovation.</p>
+        </div>
+        <div class="hosts-grid">
+            <div class="host-card">
+                <div class="host-image">
+                    <img src="{% static 'api/images/arvind.png' %}" alt="Arvind Rajan" />
+                    <a href="https://www.linkedin.com/in/arvindrajan" class="social-link" aria-label="LinkedIn" target="_blank">
+                        <object data="{% static 'api/icons/linkedin.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                </div>
+                <div class="host-content">
+                    <h3>Arvind Rajan</h3>
+                    <div class="host-tags">
+                        <span class="tag tag-ai">MD Candidate</span>
+                        <span class="tag tag-health">Public Health</span>
+                    </div>
+                    <p>MD candidate at UNC School of Medicine with a background in public health research. Passionate about medical AI and healthcare innovation, with experience in startups and research projects integrating AI in medical education.</p>
+                    <div class="host-interests">
+                        <span>Interests:</span> Carolina basketball, nature exploration, videography
+                    </div>
+                </div>
+            </div>
+            <div class="host-card">
+                <div class="host-image">
+                    <img src="{% static 'api/images/pranav.png' %}" alt="Pranav Sanghvi" />
+                    <a href="https://www.linkedin.com/in/pranavsanghvi" class="social-link" aria-label="LinkedIn" target="_blank">
+                        <object data="{% static 'api/icons/linkedin.svg' %}" type="image/svg+xml"></object>
+                    </a>
+                </div>
+                <div class="host-content">
+                    <h3>Pranav Sanghvi</h3>
+                    <div class="host-tags">
+                        <span class="tag tag-tech">MD/MBA Candidate</span>
+                        <span class="tag tag-startup">Entrepreneur</span>
+                    </div>
+                    <p>MD/MBA candidate at UNC with a background in biomedical engineering. Experienced in venture capital and consulting for healthcare companies, focusing on the intersection of technology and medical innovation.</p>
+                    <div class="host-interests">
+                        <span>Interests:</span> Traveling, skiing, app development, real estate
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

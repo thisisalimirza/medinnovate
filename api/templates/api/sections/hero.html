@@ -1,0 +1,61 @@
+{% load static %}
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Exploring the Future of Healthcare Innovation</h1>
+                <p class="subtitle">Join two UNC medical students as they dive deep into conversations with pioneers at the intersection of medicine and technology.</p>
+                <div class="hero-cta">
+                    {% if latest_episodes %}
+                        <a href="#episodes" class="btn btn-primary">Listen to Latest Episode</a>
+                    {% endif %}
+                    <a href="#episodes" class="btn btn-secondary">Browse All Episodes</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">{{ episode_count|default:"50+" }}</span>
+                        <span class="stat-label">Episodes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Monthly Listeners</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="spotify-player">
+                    <iframe 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/show/3BSx00pe1COcOATQP0aviu?utm_source=generator" 
+                        width="100%" 
+                        height="152" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="apple-podcasts-player">
+                    <iframe 
+                        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                        frameborder="0" 
+                        height="450" 
+                        style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" 
+                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                        src="https://embed.podcasts.apple.com/us/podcast/the-medical-innovation-podcast/id1784368272">
+                    </iframe>
+                </div>
+                <div class="platform-badges">
+                    <a href="https://podcasts.apple.com/us/podcast/the-medical-innovation-podcast/id1784368272" class="platform" target="_blank">
+                        <object data="{% static 'api/icons/apple-podcast.svg' %}" type="image/svg+xml"></object>
+                        <span>Listen on Apple Podcasts</span>
+                    </a>
+                    <a href="https://open.spotify.com/show/3BSx00pe1COcOATQP0aviu" class="platform" target="_blank">
+                        <object data="{% static 'api/icons/spotify.svg' %}" type="image/svg+xml"></object>
+                        <span>Listen on Spotify</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
